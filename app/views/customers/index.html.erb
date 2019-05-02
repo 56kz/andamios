@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <h1>Clientes</h1>
+
+      <table class="table">
+        <tr>
+          <th>Id</th>
+          <th>Nombre</th>
+          <th>Empresa</th>
+          <th>E-mail</th>
+          <th>Teléfono</th>
+        </tr>
+        <% @customers.each do |c| %>
+          <tr>
+            <th><%= c.id %></th>
+            <th><%= c.name %></th>
+            <th><%= c.company %></th>
+            <th><%= c.email %></th>
+            <th><%= c.phone %></th>
+          </tr>
+        <% end %>
+      </table>
+
+    </div>
+  </div>
+</div>
