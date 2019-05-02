@@ -1,1 +1,21 @@
-<h1>Puedo</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <h1>Productos</h1>
+
+      <table class="table">
+        <tr>
+          <th>Id</th>
+          <th>Nombre</th>
+        </tr>
+        <% @products.each do |p| %>
+          <tr>
+            <th><%= p.id %></th>
+            <th><%= p.name %></th>
+          </tr>
+        <% end %>
+      </table>
+
+    </div>
+  </div>
+</div>
