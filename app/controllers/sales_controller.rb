@@ -25,8 +25,8 @@ class SalesController < ApplicationController
   end
 
   def update
-    sale = Sale.find(params[:id])
-    if sale.update(sale_params)
+    @sale = Sale.find(params[:id])
+    if @sale.update(sale_params)
       redirect_to sales_path, notice: "Has actualizado la venta con éxito"
     else
       render :edit
@@ -42,7 +42,7 @@ class SalesController < ApplicationController
 
   private
    def sale_params
-     params.require(:sale).permit(:date, :quantity)
+     params.require(:sale).permit(:date, :quantity, :product_id, :customer_id)
    end
 
 end

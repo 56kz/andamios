@@ -25,8 +25,8 @@ class CustomersController < ApplicationController
   end
 
   def update
-    customer = Customer.find(params[:id])
-    if customer.update(customer_params)
+    @customer = Customer.find(params[:id])
+    if @customer.update(customer_params)
       redirect_to customers_path, notice: "La información del cliente ha sido actualizada"
     else
       render :edit
@@ -42,7 +42,7 @@ class CustomersController < ApplicationController
 
   private
     def customer_params
-      params.require(:customer).permit(:name, :company, :email, :phone)
+      params.require(:customer).permit(:name, :company, :email, :phone, :sector_id)
     end
 
 end
