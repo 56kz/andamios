@@ -1,7 +1,19 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-6 col-sm-offset-3">
-      <h1>Nueva Venta</h1>
+    <div class="col-sm-6 col-sm-offset-3 text-center">
+
+      <% if @sale.errors.any? %>
+       <div id="errors_explanation">
+         <h2><%= pluralize(@sale.errors.count,"error") %> No se pudo guardar esta venta:</h2>
+         <ul>
+           <% @sale.errors.full_messages.each do |message| %>
+             <li><%= message %></li>
+           <% end %>
+         </ul>
+       </div>
+      <% end %>
+
+      <h1>Nueva Venta</h1><br><br>
       <%= form_for @sale do |f| %>
         <div class="form-group">
           <%= f.text_field :date, class: "form-control input-lg", placeholder: "Ingresa la fecha de la compra" %>
@@ -9,24 +21,16 @@
         <div class="form-group">
           <%= f.text_field :quantity, class: "form-control input-lg", placeholder: "Ingresa la cantidad" %>
         </div>
-
-
         <div class="form-group">
           <div class="field form-group">
-            <%= collection_select(:sale, :product_id, Product.all, :id, :name, prompt: true)%>
+            <%= f.collection_select(:product_id, Product.all, :id, :name, {prompt: "Producto"}, {class: "form-control input-lg"})%>
           </div>
         </div>
-
         <div class="form-group">
           <div class="field form-group">
-            <%= collection_select(:sale, :customer_id, Customer.all, :id, :name, prompt: true)%>
+            <%= f.collection_select(:customer_id, Customer.all, :id, :name, {prompt: "Cliente"}, {class: "form-control input-lg"})%>
           </div>
         </div>
-
-
-
-
-
         <div>
           <%= f.submit "Crear Venta", class: "btn btn-primary btn-lg btn-block" %>
         </div>

@@ -1,10 +1,33 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-6 col-sm-offset-3">
-      <h1>Nombre: <%= @customer.name %></h1>
+    <div class="col-sm-6 col-sm-offset-3 text-center">
+      <h3>Nombre: <%= @customer.name %></h1>
       <p>Empresa: <%= @customer.company %></p>
       <p>E-mail: <%= @customer.email %></p>
       <p>Teléfono: <%= @customer.phone %></p>
+      <p>Sector Ecónomico: <%= @customer.sector.name %></p>
+      <br><br>
+
+      <% if @customer.sales != []%>
+        <h3>Productos Comprados</h3>
+        <table class="table">
+          <tr>
+            <th>Fecha</th>
+            <th>Producto</th>
+            <th>Cantidad</th>
+          </tr>
+          <% @customer.sales.each do |s| %>
+            <tr>
+              <td><%= s.date %></td>
+              <td><%= s.product.name %></td>
+              <td><%= s.quantity %></td>
+            </tr>
+          <% end %>
+        </table>
+      <% else %>
+        <p>Este cliente aún no registra compras</p>
+      <% end %>
+
     </div>
   </div>
 </div>

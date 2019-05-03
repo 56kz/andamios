@@ -1,7 +1,8 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-6 col-sm-offset-3">
-      <h1><%= form_title %></h1>
+    <div class="col-sm-6 col-sm-offset-3 text-center">
+      <h1><%= form_title %></h1><br><br>
+
       <%= form_for @customer do |f| %>
         <div class="form-group">
           <%= f.text_field :name, class: "form-control input-lg", placeholder: "Ingresa el nombre del cliente" %>
@@ -13,26 +14,13 @@
           <%= f.text_field :email, class: "form-control input-lg", placeholder: "Ingresa el e-mail" %>
         </div>
         <div class="form-group">
-          <%= f.text_field :phone, class: "form-control input-lg", placeholder: "Ingresa el número" %>
+          <%= f.text_field :phone, class: "form-control input-lg", placeholder: "Ingresa el número de teléfono" %>
         </div>
-
         <div class="form-group">
-
-
-
-
-            <div class="field form-group">
-              <%= collection_select(:customer, :sector_id, Sector.all, :id, :name, prompt: true)%>
-            </div>
-
-
-
-
-
-
-
+          <div class="field form-group">
+            <%= f.collection_select(:sector_id, Sector.all, :id, :name,{ prompt:"Sector" }, { class: "form-control input-lg"}) %>
+          </div>
         </div>
-
         <div>
           <%= f.submit form_title, class: "btn btn-primary btn-lg btn-block" %>
         </div>

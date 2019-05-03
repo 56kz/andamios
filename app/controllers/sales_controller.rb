@@ -9,27 +9,15 @@ class SalesController < ApplicationController
 
   def create
     @sale = Sale.new(sale_params)
-    if @sale.save
-      redirect_to sales_path, notice: "Se ha creado la venta con éxito"
+    if @sale.verify_stock
+      if @sale.save
+        redirect_to sales_path, notice: "Se ha creado la venta con éxito"
+      else
+        render :new
+      end
     else
-      render :new
-    end
-  end
-
-  def show
-    @sale = sale.find(params[:id])
-  end
-
-  def edit
-    @sale = sale.find(params[:id])
-  end
-
-  def update
-    @sale = Sale.find(params[:id])
-    if @sale.update(sale_params)
-      redirect_to sales_path, notice: "Has actualizado la venta con éxito"
-    else
-      render :edit
+      @sale.errors.add(:quantity, "No hay existencias suficientes")
+      render :new, notice: "No hay esa cantidad en Stock"
     end
   end
 

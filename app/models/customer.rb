@@ -14,4 +14,5 @@
 
 class Customer < ActiveRecord::Base
   belongs_to :sector
+  has_many :sales
 end
