@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <h1>Ventas</h1>
+
+      <table class="table">
+        <tr>
+          <th>Id</th>
+          <th>Fecha</th>
+          <th>Cantidad</th>
+        </tr>
+        <% @sales.each do |s| %>
+          <tr>
+            <th><%= s.id %></th>
+            <th><%= s.date %></th>
+            <th><%= s.quantity %></th>
+          </tr>
+        <% end %>
+      </table>
+
+    </div>
+  </div>
+</div>
