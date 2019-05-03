@@ -13,14 +13,16 @@
           <th>Empresa</th>
           <th>E-mail</th>
           <th>Teléfono</th>
+          <th></th>
         </tr>
         <% @customers.each do |c| %>
           <tr>
             <th><%= c.id %></th>
-            <th><%= c.name %></th>
+            <th><%=link_to c.name, c %></th>
             <th><%= c.company %></th>
             <th><%= c.email %></th>
             <th><%= c.phone %></th>
+            <th><%= link_to "Actualizar", edit_customer_path(c) %></th>
           </tr>
         <% end %>
       </table>
