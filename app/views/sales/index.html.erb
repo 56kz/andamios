@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-12">
-      <h1>Ventas</h1>
+      <h1 class="text-center">Ventas</h1>
       <div class="text-right">
         <%= link_to "Registrar Venta", new_sale_path, class: "btn btn-primary" %>
       </div>
@@ -23,7 +23,7 @@
             <td><%= s.quantity %></td>
             <td><%= s.customer.name %></td>
             <td>
-              <%= link_to "Eliminar",  s, method: :delete, data: { confirm: "Estas seguro que deseas eliminar esta venta?" }%>              
+              <%= link_to "Eliminar",  s, method: :delete, data: { confirm: "Estas seguro que deseas eliminar esta venta?" }%>
             </td>
           </tr>
         <% end %>

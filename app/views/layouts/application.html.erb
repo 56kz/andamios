@@ -2,6 +2,11 @@
 <html>
   <head>
     <title>Andamios</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,6 +14,20 @@
   </head>
 
   <body>
+    <nav class="navbar navbar-default">
+     <div class="container-fluid">
+       <div class="navbar-header">
+         <a class="navbar-brand">Andamios Del Norte</a>
+       </div>
+       <ul class="nav navbar-nav navbar-right">
+         <li><a href="<%= customers_path  %>">Clientes</a></li>
+         <li><a href="<%= sales_path %>">Ventas</a></li>
+         <li><a href="<%= products_path %>">Productos</a></li>
+         <li><a href="<%= sectors_path %>">Sectores</a></li>
+       </ul>
+     </div>
+   </nav>
+
     <% if flash[:notice]%>
       <div class="alert alert-info"><%= flash[:notice] %></div>
     <% end %>
