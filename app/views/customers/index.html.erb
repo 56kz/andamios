@@ -13,6 +13,7 @@
           <th>Empresa</th>
           <th>E-mail</th>
           <th>Teléfono</th>
+          <th>Sector Ecónomico</th>
           <th></th>
         </tr>
         <% @customers.each do |c| %>
@@ -22,9 +23,10 @@
             <td><%= c.company %></td>
             <td><%= c.email %></td>
             <td><%= c.phone %></td>
+            <td> Sector economico </td>
             <td>
               <%= link_to "Actualizar", edit_customer_path(c) %>
-              <%= link_to "Eliminar",  c, method: :delete, data: { confirm: "Estas seguro que deseas eliminar este cliente?" }%> 
+              <%= link_to "Eliminar",  c, method: :delete, data: { confirm: "Estas seguro que deseas eliminar este cliente?" }%>
             </td>
           </tr>
         <% end %>
