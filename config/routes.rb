@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get '/customers/:id', to: 'customers#show', as:'customer'
   get '/customers/:id/edit', to: 'customers#edit', as:'edit_customer'
   patch '/customers/:id', to: 'customers#update'
+  delete '/customers/:id', to: 'customers#destroy'
 
   get '/sales', to: 'sales#index'
 end

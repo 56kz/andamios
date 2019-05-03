@@ -25,12 +25,19 @@ class CustomersController < ApplicationController
   end
 
   def update
-    @customer = Customer.find(params[:id])
-    if @customer.update(customer_params)
+    customer = Customer.find(params[:id])
+    if customer.update(customer_params)
       redirect_to customers_path, notice: "La información del cliente ha sido actualizada"
     else
       render :edit
     end
+  end
+
+  def destroy
+    customer = Customer.find(params[:id])
+    customer.destroy
+
+    redirect_to customers_path, notice: "El cliente fue eliminado con éxito"
   end
 
   private

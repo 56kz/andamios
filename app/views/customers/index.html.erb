@@ -17,12 +17,15 @@
         </tr>
         <% @customers.each do |c| %>
           <tr>
-            <th><%= c.id %></th>
-            <th><%=link_to c.name, c %></th>
-            <th><%= c.company %></th>
-            <th><%= c.email %></th>
-            <th><%= c.phone %></th>
-            <th><%= link_to "Actualizar", edit_customer_path(c) %></th>
+            <td><%= c.id %></td>
+            <td><%=link_to c.name, c %></td>
+            <td><%= c.company %></td>
+            <td><%= c.email %></td>
+            <td><%= c.phone %></td>
+            <td>
+              <%= link_to "Actualizar", edit_customer_path(c) %>
+              <%= link_to "Eliminar",  c, method: :delete, data: { confirm: "Estas seguro que deseas eliminar este cliente?" }%> 
+            </td>
           </tr>
         <% end %>
       </table>
